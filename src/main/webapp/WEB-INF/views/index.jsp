@@ -11,13 +11,29 @@
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+<style>
+    #section a{
+        display: block;
+    }
+</style>
 </head>
 <body>
 <%@include file="./component/header.jsp"%>
 <%@include file="./component/nav.jsp"%>
 
 <div id="section">
+    <a href="/ajax-view01">ajax01</a>
+    <a href="/ajax-view02">ajax02</a>
+    <a href="/ajax-view03">ajax03</a>
+    <a href="/ajax-view04">ajax04</a>
+    <a href="/ajax-view05">ajax05</a>
+    <a href="/ajax-view06">ajax06</a>
+    <a href="/ajax-view07">ajax07</a>
+    <a href="/ajax-view08">ajax08</a>
+    <a href="/ajax-view09">ajax09</a>
+    <a href="/ajax-view10">ajax10</a>
+
+
 
 </div>
 
