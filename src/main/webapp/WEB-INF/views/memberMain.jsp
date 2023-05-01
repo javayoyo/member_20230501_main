@@ -19,7 +19,8 @@
 
 <div id="section">
     ${sessionScope.loginEmail} 님 환영해요!
-    <button>로그아웃</button>
+
+        <button onclick="update()">회원정보수정</button>
     <button onclick="fun1()">세션값 js에서 확인</button>
 
     <%-- 수정요청은 memberMain.jsp에서 시작
@@ -36,6 +37,12 @@
     const fun1 = () => {
         const loginEmail = '${sessionScope.loginEmail}';
         console.log("로그인이메일: ", loginEmail);
+    }
+
+    const update = () => {
+        location.href = "/update";
+        const loginEmail = '${sessionScope.loginEmail}';
+
     }
 </script>
 </html>
