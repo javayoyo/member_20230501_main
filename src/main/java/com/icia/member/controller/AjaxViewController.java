@@ -54,4 +54,7 @@ public class AjaxViewController {
     public String ajaxView10() {
         return "ajax10";
     }
+
+
+
 }

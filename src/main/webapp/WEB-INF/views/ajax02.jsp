@@ -20,10 +20,8 @@ cf ) axios 악시오스--%>
 
 <button onclick="ajax02()">함수호출</button>
 
-
 </body>
 <script>
-
   const ajax02 = () => {
     $.ajax({
     type: "post",
