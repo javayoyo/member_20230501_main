@@ -24,7 +24,6 @@ public class MemberService {
             return false;
         }
     }
-
     public List<MemberDTO> findAll() {
         return memberRepository.findAll();
     }
@@ -40,12 +39,10 @@ public class MemberService {
     public MemberDTO findByMemberEmail(String loginEmail) {
         return memberRepository.findByMemberEmail(loginEmail);
     }
-
     public void update(MemberDTO memberDTO) {
         memberRepository.update(memberDTO);
 
     }
-
 
 }
 
