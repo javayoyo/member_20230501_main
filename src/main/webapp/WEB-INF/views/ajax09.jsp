@@ -18,24 +18,29 @@
 ex 중복체크,댓글,좋아요,장바구니
 cf ) axios 악시오스--%>
 
-<button onclick="ajax06()">함수호출</button>
+<button onclick="ajax09()">함수호출</button>
 
 
 </body>
 <script>
 
-  const ajax06 = () => {
-
+  const ajax09 = () => {
+      const memberEmail = "aa@aa.com";
+      const memberPassword = "12132aas";
+      const memberName = "member1";
     $.ajax({
-        type: "get",
-        url: "/ajax06",
-
+        type: "post",
+        url: "/ajax09",
+        data: {
+            "memberEmail": memberEmail,
+           "memberPassword": memberPassword,
+            "memberName": memberName
+        },
       success: function (res) {
       console.log("요청성공", res);
-      for(let i in res) {
-          console.log(res[i]);
-          console.log(res[i].memberEmail);
-      }
+      console.log(res.memberEmail);
+          console.log(res.memberPassword);
+          console.log(res.memberName);
 
       },
       error: function () {

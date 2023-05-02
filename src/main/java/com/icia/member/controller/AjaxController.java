@@ -3,10 +3,14 @@ package com.icia.member.controller;
 import com.icia.member.dto.MemberDTO;
 import com.icia.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AjaxController {
@@ -53,4 +57,41 @@ public class AjaxController {
         List<MemberDTO> memberDTOList = memberService.findAll();
     return memberDTOList;
     }
+
+    @PostMapping ("/ajax07")
+    public @ResponseBody MemberDTO ajax07(@RequestBody  MemberDTO memberDTO) {
+        System.out.println("memberDTO = " + memberDTO);
+        return memberDTO;
+    }
+
+//    responsebody ajax http 를 데이터 넘기는 용도 / get 방식은 body 가 없음
+//    requestBody
+
+    @PostMapping("/ajax08")
+    public @ResponseBody List<MemberDTO> ajax08(@RequestBody MemberDTO memberDTO) {
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        memberDTOList.add(memberDTO);
+        return memberDTOList;
+    }
+
+    @PostMapping("/ajax09")
+    public ResponseEntity ajax09(@ModelAttribute MemberDTO memberDTO) {
+        System.out.println("memberDTO = " + memberDTO);
+        return new ResponseEntity<>(memberDTO, HttpStatus.NOT_FOUND);
+    }
+
+//    REST API, restful api > 백엔드 구성방식, get 가져오기 post 저장 put 수정 delete 삭제
+
+    @PostMapping("/ajax10")
+    public ResponseEntity ajax10(@RequestBody MemberDTO memberDTO) {
+        System.out.println("memberDTO = " + memberDTO);
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("member", memberDTO);
+        resultMap.put("memberList" , memberDTOList);
+        return new ResponseEntity<>(resultMap, HttpStatus.OK);
+    }
+
+
+
 }
